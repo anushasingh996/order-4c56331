@@ -73,6 +73,59 @@ spec:
   type: database
   owner: order-team
   system: sales  
-  
+---  
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: "order"
+  description: "This website handles orders across all types."
+spec:
+  type: openapi
+  lifecycle: production
+  owner:  "order-team"
+  system: "order"
+  definition:
+    $text: https://github.com/anushasingh996/order-4c56331/blob/main/open-api.yaml
+---    
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: "price"
+spec:
+  type: grpc
+  lifecycle: experimental
+  system: "order"
+  owner: "order-team"
+  definition: |
+    syntax = "proto3";
 
+    service Exampler {
+      rpc Example (ExampleMessage) returns (ExampleMessage) {};
+    }
+
+    message ExampleMessage {
+      string example = 1;
+    };
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: "customer"
+  description: "This API handles customers across all types."
+spec:
+  type: openapi
+  lifecycle: production
+  owner:  "order-team"
+  system: "order"
+  definition: |
+    syntax = "proto3";
+
+    service Exampler {
+      rpc Example (ExampleMessage) returns (ExampleMessage) {};
+    }
+
+    message ExampleMessage {
+      string example = 1;
+    };
+  
   
