@@ -12,7 +12,7 @@ metadata:
     backstage.io/techdocs-ref: dir:.
     github.com/project-slug:  anushasingh996/order-4c56331
     sonarqube.org/project-key: "order"
-    backstage.io/kubernetes-label-selector: "app=*"
+    backstage.io/kubernetes-label-selector: "app=order"
     backstage.io/adr-location: docs/adrs/
 spec:
   type: service
